@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QJSEngine>
+#include <QRegularExpression>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +19,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QJSEngine * jsEngine;
+    QRegularExpression * mathEx;
+
 
 private slots:
     void txtInChanged(QString txt);
