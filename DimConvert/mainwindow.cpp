@@ -10,12 +10,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->txtIn, SIGNAL(textEdited(QString)), this, SLOT(txtInChanged(QString)));
     connect(ui->txtMils, SIGNAL(textEdited(QString)), this, SLOT(txtMilsChanged(QString)));
     connect(ui->txtMm, SIGNAL(textEdited(QString)), this, SLOT(txtMmChanged(QString)));
-    jsEngine = new QJSEngine();
-    mathEx = new QRegularExpression("[\\(\\)\\/\\*\\+\\-]"); // -> ()/*+-
+    // jsEngine = new QJSEngine();
+    jsEngine = 0;
+    // mathEx = new QRegularExpression("[\\(\\)\\/\\*\\+\\-]"); // -> ()/*+-
+    mathEx = 0;
 }
 
 MainWindow::~MainWindow()
 {
+    delete jsEngine;
+    delete mathEx;
     delete ui;
 }
 
